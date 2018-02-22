@@ -7,7 +7,6 @@ package daoLabora;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-
 /**
  *
  * @author Personal
