@@ -5,7 +5,7 @@
  */
 package daoLabora;
 
-import LaborModel.Materia;
+import LaborModel.Matricula;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,19 @@ import javax.ejb.Local;
  * @author Santiago
  */
 @Local
-public interface MateriaFacadeLocal {
+public interface MatriculaFacadeLocal {
 
-    void create(Materia materia);
+    void create(Matricula matricula);
 
-    void edit(Materia materia);
+    void edit(Matricula matricula);
 
-    void remove(Materia materia);
+    void remove(Matricula matricula);
 
-    Materia find(Object id);
+    Matricula find(Object id);
 
-    List<Materia> findAll();
+    List<Matricula> findAll();
 
-    List<Materia> findRange(int[] range);
+    List<Matricula> findRange(int[] range);
 
     int count();
     

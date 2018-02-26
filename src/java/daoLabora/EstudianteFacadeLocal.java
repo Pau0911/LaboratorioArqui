@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author Personal
+ * @author Santiago
  */
 @Local
 public interface EstudianteFacadeLocal {
@@ -29,5 +29,7 @@ public interface EstudianteFacadeLocal {
     List<Estudiante> findRange(int[] range);
 
     int count();
+
+    boolean checkLogin(String name, String password);
     
 }

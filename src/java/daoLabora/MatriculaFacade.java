@@ -5,7 +5,7 @@
  */
 package daoLabora;
 
-import LaborModel.Materia;
+import LaborModel.Matricula;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Santiago
  */
 @Stateless
-public class MateriaFacade extends AbstractFacade<Materia> implements MateriaFacadeLocal {
+public class MatriculaFacade extends AbstractFacade<Matricula> implements MatriculaFacadeLocal {
 
     @PersistenceContext(unitName = "Laboratorio1PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class MateriaFacade extends AbstractFacade<Materia> implements MateriaFac
         return em;
     }
 
-    public MateriaFacade() {
-        super(Materia.class);
+    public MatriculaFacade() {
+        super(Matricula.class);
     }
     
 }

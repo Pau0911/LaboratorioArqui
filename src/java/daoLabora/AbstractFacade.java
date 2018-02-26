@@ -7,9 +7,10 @@ package daoLabora;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+
 /**
  *
- * @author Personal
+ * @author Santiago
  */
 public abstract class AbstractFacade<T> {
 

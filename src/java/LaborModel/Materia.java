@@ -19,104 +19,104 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Personal
+ * @author Santiago
  */
 @Entity
 @Table(name = "materia")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Materia.findAll", query = "SELECT m FROM Materia m")
-    , @NamedQuery(name = "Materia.findByCodigo", query = "SELECT m FROM Materia m WHERE m.codigo = :codigo")
-    , @NamedQuery(name = "Materia.findByNombre", query = "SELECT m FROM Materia m WHERE m.nombre = :nombre")
-    , @NamedQuery(name = "Materia.findByCreditos", query = "SELECT m FROM Materia m WHERE m.creditos = :creditos")
-    , @NamedQuery(name = "Materia.findByHorario", query = "SELECT m FROM Materia m WHERE m.horario = :horario")
-    , @NamedQuery(name = "Materia.findByCupo", query = "SELECT m FROM Materia m WHERE m.cupo = :cupo")})
+    , @NamedQuery(name = "Materia.findByCode", query = "SELECT m FROM Materia m WHERE m.code = :code")
+    , @NamedQuery(name = "Materia.findByName", query = "SELECT m FROM Materia m WHERE m.name = :name")
+    , @NamedQuery(name = "Materia.findByCredits", query = "SELECT m FROM Materia m WHERE m.credits = :credits")
+    , @NamedQuery(name = "Materia.findByHorary", query = "SELECT m FROM Materia m WHERE m.horary = :horary")
+    , @NamedQuery(name = "Materia.findByCapacity", query = "SELECT m FROM Materia m WHERE m.capacity = :capacity")})
 public class Materia implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "codigo")
-    private Integer codigo;
+    @Column(name = "code")
+    private Integer code;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 40)
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "name")
+    private String name;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "creditos")
-    private int creditos;
+    @Column(name = "credits")
+    private short credits;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "horario")
-    private String horario;
+    @Column(name = "horary")
+    private String horary;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "cupo")
-    private int cupo;
+    @Column(name = "capacity")
+    private short capacity;
 
     public Materia() {
     }
 
-    public Materia(Integer codigo) {
-        this.codigo = codigo;
+    public Materia(Integer code) {
+        this.code = code;
     }
 
-    public Materia(Integer codigo, String nombre, int creditos, String horario, int cupo) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.creditos = creditos;
-        this.horario = horario;
-        this.cupo = cupo;
+    public Materia(Integer code, String name, short credits, String horary, short capacity) {
+        this.code = code;
+        this.name = name;
+        this.credits = credits;
+        this.horary = horary;
+        this.capacity = capacity;
     }
 
-    public Integer getCodigo() {
-        return codigo;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getCreditos() {
-        return creditos;
+    public short getCredits() {
+        return credits;
     }
 
-    public void setCreditos(int creditos) {
-        this.creditos = creditos;
+    public void setCredits(short credits) {
+        this.credits = credits;
     }
 
-    public String getHorario() {
-        return horario;
+    public String getHorary() {
+        return horary;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHorary(String horary) {
+        this.horary = horary;
     }
 
-    public int getCupo() {
-        return cupo;
+    public short getCapacity() {
+        return capacity;
     }
 
-    public void setCupo(int cupo) {
-        this.cupo = cupo;
+    public void setCapacity(short capacity) {
+        this.capacity = capacity;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash += (code != null ? code.hashCode() : 0);
         return hash;
     }
 
@@ -127,7 +127,7 @@ public class Materia implements Serializable {
             return false;
         }
         Materia other = (Materia) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
+        if ((this.code == null && other.code != null) || (this.code != null && !this.code.equals(other.code))) {
             return false;
         }
         return true;
@@ -135,7 +135,7 @@ public class Materia implements Serializable {
 
     @Override
     public String toString() {
-        return "LaborModel.Materia[ codigo=" + codigo + " ]";
+        return "LaborModel.Materia[ code=" + code + " ]";
     }
     
 }

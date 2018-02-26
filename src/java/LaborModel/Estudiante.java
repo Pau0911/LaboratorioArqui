@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -19,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Personal
+ * @author Santiago
  */
 @Entity
 @Table(name = "estudiante")
@@ -27,8 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Estudiante.findAll", query = "SELECT e FROM Estudiante e")
     , @NamedQuery(name = "Estudiante.findById", query = "SELECT e FROM Estudiante e WHERE e.id = :id")
-    , @NamedQuery(name = "Estudiante.findByNombreE", query = "SELECT e FROM Estudiante e WHERE e.nombreE = :nombreE")
-    , @NamedQuery(name = "Estudiante.findByContrase\u00f1a", query = "SELECT e FROM Estudiante e WHERE e.contrase\u00f1a = :contrase\u00f1a")})
+    , @NamedQuery(name = "Estudiante.findByName", query = "SELECT e FROM Estudiante e WHERE e.name = :name")
+    , @NamedQuery(name = "Estudiante.findByPassword", query = "SELECT e FROM Estudiante e WHERE e.password = :password")})
 public class Estudiante implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,13 +41,18 @@ public class Estudiante implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 40)
-    @Column(name = "nombreE")
-    private String nombreE;
+    @Column(name = "name")
+    private String name;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 40)
-    @Column(name = "contrase\u00f1a")
-    private String contraseña;
+    @Column(name = "password")
+    private String password;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Column(name = "photo")
+    private byte[] photo;
 
     public Estudiante() {
     }
@@ -55,10 +61,11 @@ public class Estudiante implements Serializable {
         this.id = id;
     }
 
-    public Estudiante(Integer id, String nombreE, String contraseña) {
+    public Estudiante(Integer id, String name, String password, byte[] photo) {
         this.id = id;
-        this.nombreE = nombreE;
-        this.contraseña = contraseña;
+        this.name = name;
+        this.password = password;
+        this.photo = photo;
     }
 
     public Integer getId() {
@@ -69,20 +76,28 @@ public class Estudiante implements Serializable {
         this.id = id;
     }
 
-    public String getNombreE() {
-        return nombreE;
+    public String getName() {
+        return name;
     }
 
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     @Override

@@ -9,10 +9,11 @@ import LaborModel.Estudiante;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
- * @author Personal
+ * @author Santiago
  */
 @Stateless
 public class EstudianteFacade extends AbstractFacade<Estudiante> implements EstudianteFacadeLocal {
@@ -28,5 +29,15 @@ public class EstudianteFacade extends AbstractFacade<Estudiante> implements Estu
     public EstudianteFacade() {
         super(Estudiante.class);
     }
+
+    @Override
+    public boolean checkLogin(String n, String p) {
+        Query q =em.createQuery("select a from Account a"
+            + "where a.name=:n and a.password=:p");
+        q.setParameter("n", n);
+        q.setParameter("p", p);
+        return q.getResultList().size()>0;
+    }
     
+
 }
